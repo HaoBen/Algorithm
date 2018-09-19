@@ -1,6 +1,6 @@
 # A server for immediate communication
-
-Structure of this project:
+**Structure of this project:**
+```
 Server
 |
 |---src  (to store source files)
@@ -14,3 +14,4 @@ Server
 |---.vscode (to store configuration files for vscode)
 |
 |---makefile  (to make)
+```
