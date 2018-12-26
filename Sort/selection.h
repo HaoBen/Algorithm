@@ -1,13 +1,12 @@
 #ifndef SELECTION_H
 #define SELECTION_H
 
-#include "comparable.h"
+#include "common.h"
 
 template <typename T>
 class Selection : public Sort<T> {
 public:
     void sort(T a[],int start,int end);
-    bool isSorted(T a[],int start,int end) {}
 };
 
 template <typename T>
@@ -21,4 +20,5 @@ void Selection<T>::sort(T a[],int start,int end) {
         ++start;
     }
 }
+
 #endif

@@ -1,14 +1,13 @@
 #ifndef BUBBLE_H
 #define BUBBLE_H
 
-#include "comparable.h"
+#include "common.h"
 
 //class for BubbleSort
 template <typename T>
 class Bubble : public Sort<T> {
 public:
     void sort(T a[],int start,int end);
-    bool isSorted(T a[],int start,int end){}
 };
 
 template <typename T>
@@ -25,4 +24,5 @@ void Bubble<T>::sort(T a[],int start,int end) {
         if(flag) break;
     }
 }
+
 #endif

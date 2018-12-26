@@ -1,17 +1,7 @@
-#ifndef CPMPARABLE_H
-#define COMPARABLE_H
+#ifndef COMMON_H
+#define COMMON_H
 
 #include <iostream>
-
-//This is an interface used to compare to data
-class Comparable {
-public:
-    /*
-    ** @param a  another to be compared
-    ** @return int if(this<a),return -1;if(this == a) return 0;if(this>a) return 1;
-    */
-    virtual int compareTo(Comparable& a) = 0;
-};
 
 //This is an shared class for sort
 template <typename T>
@@ -24,7 +14,12 @@ protected:
     }
 public:
     virtual void sort(T a[],int i,int j) = 0;
-    virtual bool isSorted(T a[],int i,int j) = 0;
+    bool isSorted(T a[],int i,int j) {
+        while(i < j-1) {
+            if(a[i] >= a[++i]) return false;
+        }
+        return true;
+    }
     void show(T a[],int i,int j) {
         while(i < j) {
             std::cout<<a[i++]<<" ";
