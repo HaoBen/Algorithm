@@ -15,8 +15,8 @@ protected:
         a = b;
         b = tmp;    
     }
-    virtual ~Sort() {}
 public:
+    virtual ~Sort() {}
     virtual void sort(T a[],int start,int end) = 0;
     void show(T a[],int start,int end) {
         while(start < end) std::cout<<a[start++]<<" ";

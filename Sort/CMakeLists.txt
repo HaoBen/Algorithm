@@ -14,5 +14,8 @@ LINK_LIBRARIES()
 #指定可执行文件的输出位置
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 
+#生成debug版本
+set(CMAKE_BUILD_TYPE Debug)
+
 #编译主函数，生成可执行文件
 add_executable(${PROJECT_NAME} ${SRC_LIST})

@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+.././include/bubbleSort.h
+sort.h
+.././include/sort.h
+
+.././include/insertionSort.h
+sort.h
+.././include/sort.h
+
+.././include/selectionSort.h
+sort.h
+.././include/sort.h
+
+.././include/sort.h
+iostream
+-
+
+/home/dinghao/workspace/Algorithm/Sort/src/main.cpp
+iostream
+-
+cstdlib
+-
+ctime
+-
+bubbleSort.h
+/home/dinghao/workspace/Algorithm/Sort/src/bubbleSort.h
+selectionSort.h
+/home/dinghao/workspace/Algorithm/Sort/src/selectionSort.h
+insertionSort.h
+/home/dinghao/workspace/Algorithm/Sort/src/insertionSort.h
+
