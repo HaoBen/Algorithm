@@ -5,6 +5,8 @@
     base class for sort
 */
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 template <typename T>
 class Sort
@@ -28,6 +30,32 @@ public:
         }
         return true;
     }
+    static int sortCompare(Sort<T>* m1,Sort<T>* m2);
 };
 
+/*
+** 用于比较两种不同的排序算法的性能
+*/
+template <typename T>
+int Sort<T>::sortCompare(Sort<T>* m1,Sort<T>* m2) {
+    T array1[10000];
+    T array2[10000];
+    srand(time(NULL));
+    for(size_t i = 0;i < 10000;++i) {
+        int tmp = rand() % 300;
+        array1[i] = tmp;
+        array2[i] = tmp;
+    }
+
+    time_t start1,end1,start2,end2;
+    time(&start1);
+    m1->sort(array1,0,10000);
+    time(&end1);
+
+    time(&start2);
+    m2->sort(array2,0,10000);
+    time(&end2);
+
+    return ((end1-start1)-(end2-start2));
+}
 #endif

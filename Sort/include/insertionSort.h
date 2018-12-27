@@ -22,19 +22,16 @@ void InsertionSort<T>::shift(T a[],int start,int end,int n) {
 
 template <typename T>
 void InsertionSort<T>::sort(T a[],int start,int end) {
-    for(int i = start;i < end;++i) {    //选择即将被插入的元素[start,end)
-        if(a[i] < a[start]) {      //插到起始位置
-            int tmp = a[i];
-            shift(a,start,i,1);
-            a[start] = tmp;
-        }
-        else {
-            for(int j = start;j < i;++j) {  //找到该元素的合适插入位置，并插入
-                if(a[i] > a[j] && a[i] <= a[j+1]) { //将元素插到j位置后面
-                    int tmp = a[i];
-                    shift(a,j+1,i,1);
-                    a[j+1] = tmp;
-                }
+    for(int i = start+1;i < end;++i) {    //选择即将被插入的元素[start,end)
+        for (int j = start; j < i; ++j)
+        {
+            if (a[i] <= a[start] || (a[i] > a[j - 1] && a[i] <= a[j]))
+            {
+                int tmp = a[i];
+                for (int k = i; k > j; --k)
+                    a[k] = a[k - 1];
+                a[j] = tmp;
+                break;
             }
         }
     }

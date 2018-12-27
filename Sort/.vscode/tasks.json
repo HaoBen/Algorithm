@@ -6,7 +6,8 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "cd build;make;cd ../;bin/Sort"
+            "problemMatcher":"$gcc",
+            "command": "cd build;make"
         }
     ]
 }

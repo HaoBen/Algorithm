@@ -11,17 +11,19 @@ int main() {
     /*
         produce a random array
     */
-    int a[10];
-    srand(time(0));
+    // int a[10];
+    // srand(time(0));
 
-    for(size_t i = 0; i < 10; i++)
-    {
-        a[i] = rand() % 100;
-    }
+    // for(size_t i = 0; i < 10; i++)
+    // {
+    //     a[i] = rand() % 100;
+    // }
     
-    Sort<int>* s = new InsertionSort<int>;
-    s->show(a,0,10);
-    s->sort(a,0,10);
-    s->show(a,0,10);
-    delete s;
+    Sort<int>* bs = new BubbleSort<int>;
+    Sort<int>* is = new InsertionSort<int>;
+    
+    cout<<Sort<int>::sortCompare(bs,is)<<endl;
+    
+    delete bs;
+    delete is;
 }
