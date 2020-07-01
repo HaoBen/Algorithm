@@ -31,6 +31,6 @@ endif()
 
 #-----------------------------------------------------
 
-set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/binnnnnnnnnn)
-add_executable(demo demo.cpp)
-target_link_libraries(demo ${LIBS} gtest_main)
+#set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/binnnnnnnnnn)
+add_executable(sort_test sort_test.cpp)
+target_link_libraries(sort_test gtest_main)

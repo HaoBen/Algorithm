@@ -1,11 +1,15 @@
 project(Algorithm)
 cmake_minimum_required(VERSION 3.14)
 set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-set(LIBS)
+set(LIBS
+    sort)
+
+include_directories(common)
 
 foreach(item ${LIBS})
-    add_subdirectory(${item})
+    #add_subdirectory(${item})
     include_directories(${item})
 endforeach()
 
