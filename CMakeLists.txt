@@ -8,6 +8,10 @@ set(LIBS
 
 include_directories(common)
 
+if (DEBUG_PRINT)
+    add_definitions(-D_DEBUG_PRINT)
+endif()
+
 foreach(item ${LIBS})
     #add_subdirectory(${item})
     include_directories(${item})
@@ -17,6 +21,6 @@ if (GTEST)
     add_subdirectory(test)
 endif()
 
-#add_executable(example example.cpp)
+add_executable(example example.cpp)
 #target_link_libraries(example ${LIBS})
 #add_test(NAME dddd COMMAND example)
