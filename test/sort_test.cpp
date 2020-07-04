@@ -10,14 +10,14 @@
     std::vector<int> v; \
     for (int i = 0; i < n; ++i) \
     { \
-        v.push_back(i); \
+        v.push_back(i%1000); \
     } \
     RandomOrder<int>(v); \
     \
     auto begin = clock(); \
     SortFunc(v); \
     auto end = clock(); \
-    printf("Cost For: %lu ms\n", (end-begin)/1000); \
+    printf("Cost For: [%lu ms] = [%lu us]\n", (end-begin)/1000, end-begin); \
     \
     for (int i = 0; i < v.size()-1; ++i) \
     { \
@@ -44,37 +44,22 @@ TEST(Sort, BubbleSort_10000)
     SortTestHelper(10000, BubbleSort);
 }
 
-//TEST(Sort, QuickSort_1000)
-//{
-    //SortTestHelper(1000, QuickSort);
-//}
-
-//TEST(Sort, QuickSort_10000)
-//{
-    //std::ofstream("tmp.txt");
-    //std::vector<int> v;
-    //for (int i = 0; i < 10000; ++i)
-    //{
-        //v.push_back(i);
-    //}
-    //RandomOrder<int>(v);
-    
-    //auto begin = clock(); 
-    //QuickSort(v); 
-    //auto end = clock(); 
-    //printf("Cost For: %lu ms\n", (end-begin)/1000); 
-    
-    //for (int i = 0; i < v.size()-1; ++i) 
-    //{ 
-        //ASSERT_LE(v[i], v[i+1]); 
-    //} 
-//}
-TEST(Sort, QuickSort_Test)
+TEST(Sort, QuickSort_1000)
 {
-    std::vector<int> v = {9,8,7,7,5,5,3,2,1};
-    QuickSort(v);
-    for (int i = 0; i < v.size()-1; ++i) 
-    { 
-        ASSERT_LE(v[i], v[i+1]); 
-    } 
+    SortTestHelper(1000, QuickSort);
+}
+
+TEST(Sort, QuickSort_10000)
+{
+    SortTestHelper(10000, QuickSort);
+}
+
+TEST(Sort, QuickSort_100000)
+{
+    SortTestHelper(100000, QuickSort);
+}
+
+TEST(Sort, QuickSort_1000000)
+{
+    SortTestHelper(1000000, QuickSort);
 }

@@ -47,8 +47,8 @@ void PrintRange(Iter from, Iter to)
     std::cout << *iter << std::endl;
 }
 
-void Delay()
+void Delay(int n)
 {
-    std::this_thread::sleep_for(std::chrono::seconds(1));
+    std::this_thread::sleep_for(std::chrono::seconds(n));
 }
 #endif

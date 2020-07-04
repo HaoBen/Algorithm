@@ -18,50 +18,42 @@
 template <class Iter>
 void SortHelper(Iter from, Iter to)
 {
-    if (from >= to) return;
     auto left_anchor = from;
-    auto right_anchor = to;
+    auto right_anchor = to-1;
+    if (left_anchor >= right_anchor) return;
     auto key = *from;  // 去最左边的元素作为关键字
 
 #ifdef _DEBUG_PRINT
     printf("before: ");
-    PrintRange(from, to);
+    PrintRange(from, to-1);
 #endif
 
     while (left_anchor != right_anchor)
     {
-        // 从右边开始，找到一个可以放到右边锚点的元素
-        while (right_anchor != left_anchor && *right_anchor <= key) --right_anchor;
-        *left_anchor = *right_anchor;
-    #ifdef _DEBUG_PRINT
-        PrintRange(from, to);
-        Delay();
-    #endif
+        // 从右边开始，找到一个可以放到左边锚点的元素
+        while (right_anchor != left_anchor && *right_anchor > key) --right_anchor;
+        if (right_anchor > left_anchor) *left_anchor++ = *right_anchor;
+
         // 然后从左边找到一个可以放到右边锚点的元素
-        while (left_anchor != right_anchor && *left_anchor > key) ++left_anchor;
-        *right_anchor = *left_anchor;
-    #ifdef _DEBUG_PRINT
-        PrintRange(from, to);
-        Delay();
-    #endif
+        while (left_anchor != right_anchor && *left_anchor < key) ++left_anchor;
+        if (left_anchor < right_anchor) *right_anchor-- = *left_anchor;
     }
     
     // 两个锚点相撞了，将重心锚点位置的值置为关键字
     *left_anchor = key;
 
 #ifdef _DEBUG_PRINT
-    printf(" after: ");
-    PrintRange(from, to);
+    printf(" after[%ld]: ", left_anchor-from);
+    PrintRange(from, to-1);
 #endif
 
-    // 左右两边分别再排序
-    SortHelper(from, left_anchor-1);
-    SortHelper(left_anchor, to);
-
+    // 对左右两部分再分别排序
+    SortHelper(from, left_anchor);
+    SortHelper(left_anchor+1, to);
 }
 
 template <typename T>
 void QuickSort(std::vector<T> &v)
 {
-    SortHelper(v.begin(), v.end()-1);      
+    SortHelper(v.begin(), v.end());      
 }
