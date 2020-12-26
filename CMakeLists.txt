@@ -17,6 +17,8 @@ foreach(item ${LIBS})
     include_directories(${item})
 endforeach()
 
+add_executable(testcode testcode.cpp)
+
 if (TEST)
     add_definitions(-DTEST_ON)
     add_subdirectory(tests)
