@@ -1,6 +1,6 @@
 project(Algorithm)
 cmake_minimum_required(VERSION 3.14)
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 set(DEBUG_PRINT ON)
@@ -10,8 +10,9 @@ if (DEBUG_PRINT)
     add_definitions(-D_DEBUG_PRINT)
 endif()
 
+include_directories(.)
 set(LIBS
-    sort)
+    sort search)
 
 foreach(item ${LIBS})
     include_directories(${item})
