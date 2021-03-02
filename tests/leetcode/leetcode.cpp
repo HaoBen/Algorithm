@@ -1,8 +1,11 @@
 #include "catch2/catch.hpp"
 #include <iostream>
+#include <numeric>
+
 using std::vector;
 using std::max;
 using std::min;
+using std::numeric_limits;
 
 class Solution {
 public:
@@ -24,10 +27,10 @@ public:
             int i = (left+right)/2;
             int j = left_cnt - i;
 
-            nums1Left = (i == 0) ? INT_MIN : nums1[i - 1];
-            nums1Right = (i == m) ? INT_MAX : nums1[i];
-            nums2Left = (j == 0) ? INT_MIN : nums2[j - 1];
-            nums2Right = (j == n) ? INT_MAX : nums2[j];
+            nums1Left = (i == 0) ? numeric_limits<int>::min() : nums1[i - 1];
+            nums1Right = (i == m) ? numeric_limits<int>::max() : nums1[i];
+            nums2Left = (j == 0) ? numeric_limits<int>::min() : nums2[j - 1];
+            nums2Right = (j == n) ? numeric_limits<int>::max() : nums2[j];
 
             if (nums1Left > nums2Right) {
                 right = i-1;
