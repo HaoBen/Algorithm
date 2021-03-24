@@ -9,7 +9,7 @@ set(TESTS_SRC
 set(TESTS_SRC_DIR leetcode search)
 
 # for leetcode tests
-set(leetcode leetcode.cpp)
+set(leetcode array.cpp)
 
 # for search tests
 set(search search_test.cpp)
